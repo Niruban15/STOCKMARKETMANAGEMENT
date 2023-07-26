@@ -8,7 +8,7 @@ public class stockdetails{
 		String username="root";
 		String password="5609";
 		
-		public void insert()throws Exception{
+		public void stockinsert()throws Exception{
 			 try {
 				
 		 Connection con=DriverManager.getConnection(url,username,password);
@@ -53,7 +53,7 @@ public class stockdetails{
 				  e.printStackTrace();
 				  
 			  }}
-	        public void nameupdate()
+	        public void stocknameupdate()
 
 	        {
 	        	try {
@@ -86,12 +86,12 @@ public class stockdetails{
 	   	       Statement st=(Statement) con.createStatement();     
 	    		  ResultSet rs= st.executeQuery(QUERY);
 	    			 while(rs.next()) {
-	    	        	 System.out.println("ID"+rs.getInt(1));
-	    	        	 System.out.println("STOCKNAME"+rs.getString(2));
-	    	        	 System.out.println("CLOSINGPRICE"+rs.getFloat(3));
-	    	        	 System.out.println("OPENINGPRICE"+rs.getFloat(4));
-	    	        	 System.out.println("DAYHIGH"+rs.getFloat(5));
-	    	        	 System.out.println("DAYLOW"+rs.getFloat(6));
+	    	        	 System.out.println("ID : "+rs.getInt(1));
+	    	        	 System.out.println("STOCKNAME : "+rs.getString(2));
+	    	        	 System.out.println("CLOSINGPRICE : "+rs.getFloat(3));
+	    	        	 System.out.println("OPENINGPRICE : "+rs.getFloat(4));
+	    	        	 System.out.println("DAYHIGH : "+rs.getFloat(5));
+	    	        	 System.out.println("DAYLOW : "+rs.getFloat(6));
 	    	        	}}
 	        		
 	    	         
@@ -106,7 +106,7 @@ public class stockdetails{
 	   	          String QUERY="select*from stocks.NIFTY50";
 	   	       Statement st=(Statement) con.createStatement();     
 	    		  ResultSet rs= st.executeQuery(QUERY);
-	    		  System.out.println("ID  STOCKNAAME  CLOSEPRICE  OPENPRICE DAYHIGH  DAYLOW" );
+	    		  System.out.println("ID  STOCKNAME  CLOSEPRICE  OPENPRICE DAYHIGH  DAYLOW" );
 	    			 while(rs.next()) {
 	    	        	 System.out.println(rs.getInt(1)+"   "+rs.getString(2)+"      "
 	    	        	+rs.getFloat(3)+"      "+rs.getFloat(4)+"      "+
@@ -134,16 +134,4 @@ public class stockdetails{
 	   				  e.printStackTrace();
 	   				  
 	   			  }}
-	        public static void main(String[] args)throws Exception{
-	           stockdetails obj=new stockdetails();
-	           //create cr=new create();
-	                //  cr.createdatabase();
-	                //  cr.createtable();
-	               //obj.insert();
-	               // obj.nameupdate();
-	        //  obj.getbystockid();
-	          // obj.STOCKSTABLE();
-	          obj. deletebystockid();
-	           
-	 
-}}
+	      }

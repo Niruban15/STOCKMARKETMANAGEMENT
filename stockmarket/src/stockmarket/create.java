@@ -28,7 +28,7 @@ public class create {
 		  }}
         
         
-		  public void createtable() {
+		  public void createstocktable() {
 			  try {Connection con=DriverManager.getConnection(url,username,password);
 				  Statement st=(Statement) con.createStatement();     
         String QUERY="create table stocks.NIFTY50"+
@@ -39,18 +39,27 @@ public class create {
                "DAYHIGH FLOAT,"+
               "DAYLOW FLOAT)";
     st.executeUpdate(QUERY);
-    System.out.println("Created table NIFTY50");
+    System.out.println("Created table NIFTY50");}
+    
+    catch(SQLException e) {
+		  e.printStackTrace();
+		  
+	  }}
+    
+    public void createusertable() {
+		  try {Connection con=DriverManager.getConnection(url,username,password);
+			  Statement st=(Statement) con.createStatement(); 
     
     
-    String QUERY1="create table stocks.USER"+
+    String QUERY="create table stocks.USER"+
   		    "(USERID int PRIMARY KEY auto_increment,"+
               "USERNAME VARCHAR(50),"+
-              "PAN_NUMBER INTEGER UNIQUE,"+
+              "PAN_NUMBER VARCHAR(50) UNIQUE,"+
               "TRADES_TAKEN INTEGER,"+
               "TOTAL_BUY_VALUE FLOAT,"+
               "TOTAL_SELL_VALUE FLOAT,"+
               "FUNDS_AVAILABLE FLOAT)";
-    st.executeUpdate(QUERY1);
+    st.executeUpdate(QUERY);
     System.out.println("Created table USER");}
 	  catch(SQLException e) {
 		  e.printStackTrace();
